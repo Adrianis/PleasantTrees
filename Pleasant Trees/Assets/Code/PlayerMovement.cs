@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour {
                 rigidbody.velocity = Vector3.zero;
             }
         }
+
         if (Input.GetButtonDown("Activate_" + PlayerNumber)) 
         { 
             if (activationEnabled)
@@ -67,6 +68,15 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     ActivationMethod();
                 }
+            }
+        }
+
+        if (Input.GetButton("Propel_" + PlayerNumber))
+        {
+            if (direction != Vector3.zero)
+            {
+                rigidbody.AddForce(direction * (pushForce * 1.5f), ForceMode.Force);
+                // do oxygen reduction over time
             }
         }
     }
