@@ -3,7 +3,7 @@ using System.Collections;
 
 public class OxygenTimer : MonoBehaviour {
 
-    public int TimeTillAsphyx;
+    public float TimeTillAsphyx;
 
 
 
