@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class OxygenTimer : MonoBehaviour {
 
@@ -9,11 +10,18 @@ public class OxygenTimer : MonoBehaviour {
 
     public int playerNum { get; set; }
 
+    private PlayerMovement PC;
+
+    public List<SpriteRenderer> Visuals;
+    public GameObject CamTint;
+    public GameObject DirArrow;
+
     void Start()
     {
         StartCoroutine(AsphyxCounter());
         GUI.TimeOri = TimeTillAsphyx;
         StartCoroutine(UpdateGUI());
+        PC = GetComponent<PlayerMovement>();
     }
 
     private IEnumerator AsphyxCounter()
@@ -24,7 +32,12 @@ public class OxygenTimer : MonoBehaviour {
             
             if (TimeTillAsphyx <= 0)
             {
-                Debug.LogWarning("DEATH");
+                GUI.KillPlayer(playerNum);
+                PC.enabled = false;
+                CamTint.SetActive(true);
+                DirArrow.SetActive(true);
+                foreach (SpriteRenderer sprite in Visuals)
+                    sprite.sortingOrder = 0;
             }
             else TimeTillAsphyx -= 1;
         }

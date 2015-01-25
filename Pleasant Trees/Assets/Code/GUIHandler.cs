@@ -12,6 +12,9 @@ public class GUIHandler : MonoBehaviour {
     public float Player1Time;
     public float Player2Time;
 
+    public bool Player1Dead;
+    public bool Player2Dead;
+
     void Start()
     {
         InitialiseGUIElements();
@@ -28,18 +31,31 @@ public class GUIHandler : MonoBehaviour {
             Player2Time = time;
         }
     }
+    public void KillPlayer(int playerNum)
+    {
+        if (playerNum == 1)
+            Player1Dead = true;
+        else if (playerNum == 2)
+            Player2Dead = true;
+    }
 
     void OnGUI()
     {
         // Player 1
-        GUI.Label(new Rect(10, 30, 40, 20), "O2:");
-        GUI.Label(new Rect(50, 30, TimeOri * 7, 20), "", guiBackgroundStyle);
-        GUI.Label(new Rect(50, 30, Player1Time * 7, 20), "", guiMeasureStyle);
-
+        if (!Player1Dead)
+        {
+            GUI.Label(new Rect(10, 30, 40, 20), "O2:");
+            GUI.Label(new Rect(50, 30, TimeOri * 7, 20), "", guiBackgroundStyle);
+            GUI.Label(new Rect(50, 30, Player1Time * 7, 20), "", guiMeasureStyle);
+        }
+        
         // Player 2
-        GUI.Label(new Rect(780, 30, 40, 20), "O2:");
-        GUI.Label(new Rect(820, 30, TimeOri * 7, 20), "", guiBackgroundStyle);
-        GUI.Label(new Rect(820, 30, Player2Time * 7, 20), "", guiMeasureStyle);
+        if (!Player2Dead)
+        {
+            GUI.Label(new Rect(780, 30, 40, 20), "O2:");
+            GUI.Label(new Rect(820, 30, TimeOri * 7, 20), "", guiBackgroundStyle);
+            GUI.Label(new Rect(820, 30, Player2Time * 7, 20), "", guiMeasureStyle);
+        }
     }
 
     private void InitialiseGUIElements()

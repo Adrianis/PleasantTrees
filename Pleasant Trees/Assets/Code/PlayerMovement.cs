@@ -42,10 +42,10 @@ public class PlayerMovement : MonoBehaviour {
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
         
         DirArrow.rotation = rotation;
-        if (direction == Vector3.zero)
-            DirArrow.gameObject.SetActive(false);
-        else if (!DirArrow.gameObject.activeInHierarchy)
-            DirArrow.gameObject.SetActive(true);
+        //if (direction == Vector3.zero)
+        //    DirArrow.gameObject.SetActive(false);
+        //else if (!DirArrow.gameObject.activeInHierarchy)
+        //    DirArrow.gameObject.SetActive(true);
 
         // PLAYER INPUTS //
 
