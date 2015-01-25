@@ -11,6 +11,11 @@ public class FinalDoor : MonoBehaviour {
     public SwitchBack SwitchBack1;
     public SwitchBack SwitchBack2;
 
+    void Start()
+    {
+        StartCoroutine(CheckSwitches());
+    }
+
     public void HitSwitch(int switchNum, SwitchBack switchBack)
     {
         if (switchNum == 1)

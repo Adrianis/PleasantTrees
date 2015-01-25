@@ -9,14 +9,22 @@ public class FinalSwitch : MonoBehaviour {
     public Sprite ActivatedSprite;
     public SpriteRenderer SpriteRenderer;
 
+    private Sprite originalSprite;
+
+    void Start()
+    {
+        originalSprite = SpriteRenderer.sprite;
+    }
+
     private void OpenLinkedDoor()
     {
         finalDoor.HitSwitch(switchNum, SwitchBack);
+        SpriteRenderer.sprite = ActivatedSprite;
     }
 
     private void SwitchBack()
     {
-
+        SpriteRenderer.sprite = originalSprite;
     }
 
     void OnTriggerEnter(Collider col)
