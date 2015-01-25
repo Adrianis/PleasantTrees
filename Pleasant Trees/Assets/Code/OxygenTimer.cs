@@ -5,11 +5,16 @@ public class OxygenTimer : MonoBehaviour {
 
     public float TimeTillAsphyx;
 
+    public GUIHandler GUI;
+
+    public int playerNum { get; set; }
+
     void Start()
     {
         StartCoroutine(AsphyxCounter());
+        GUI.TimeOri = TimeTillAsphyx;
+        StartCoroutine(UpdateGUI());
     }
-
 
     private IEnumerator AsphyxCounter()
     {
@@ -17,12 +22,20 @@ public class OxygenTimer : MonoBehaviour {
         {
             yield return new WaitForSeconds(1);
             
-            TimeTillAsphyx -= 1;
-            if (TimeTillAsphyx < 0)
+            if (TimeTillAsphyx <= 0)
             {
-                // KILL
+                Debug.LogWarning("DEATH");
             }
+            else TimeTillAsphyx -= 1;
         }
     }
 
+    private IEnumerator UpdateGUI()
+    {
+        while (true)
+        {
+            GUI.UpdatePlayerTime(playerNum, TimeTillAsphyx);
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
