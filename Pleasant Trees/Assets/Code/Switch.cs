@@ -5,9 +5,13 @@ public class Switch : MonoBehaviour {
 
     public Door LinkedDoor;
 
+    public Sprite ActivatedSprite;
+    public SpriteRenderer SpriteRenderer;
+
     private void OpenLinkedDoor()
     {
         LinkedDoor.Open();
+        SpriteRenderer.sprite = ActivatedSprite;
     }
     
     void OnTriggerEnter(Collider col)
