@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public float pushForce;
     public float magnetForce;
     public float moveSpeedMax;
+    public float oxygenBoostRate;
 
     private float pushForceOri;
     private bool isTouchingSurface;
@@ -22,9 +23,12 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector3 prevVel = Vector3.right;
 
+    private OxygenTimer OxyTimer;
+
     void Start()
     {
         pushForceOri = pushForce;
+        OxyTimer = GetComponent<OxygenTimer>();
     }
 
     void FixedUpdate()
@@ -83,6 +87,7 @@ public class PlayerMovement : MonoBehaviour {
                 OxygenPS.emit = true;
                 rigidbody.AddForce(direction * (pushForce * 1.5f), ForceMode.Force);
                 // do oxygen reduction over time
+                OxyTimer.TimeTillAsphyx -= oxygenBoostRate;
             }
         }
         else if (Input.GetButtonUp("Propel_" + PlayerNumber))
