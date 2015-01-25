@@ -16,6 +16,11 @@ public class PlayerMovement : MonoBehaviour {
     public bool activationEnabled { get; set; }
     public ActivationRoutine ActivationMethod;
 
+    public ParticleEmitter OxygenPS;
+
+    public Transform Visual;
+
+    private Vector3 prevVel = Vector3.right;
 
     void Start()
     {
@@ -26,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         Vector3 direction = new Vector3(-Input.GetAxis("DirectionX_" + PlayerNumber), -Input.GetAxis("DirectionY_" + PlayerNumber), 0);
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = rotation;
+        //transform.rotation = rotation;
 
         if (Input.GetButton("Push_" + PlayerNumber))
         { 
@@ -75,9 +80,26 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (direction != Vector3.zero)
             {
+                OxygenPS.emit = true;
                 rigidbody.AddForce(direction * (pushForce * 1.5f), ForceMode.Force);
                 // do oxygen reduction over time
             }
+        }
+        else if (Input.GetButtonUp("Propel_" + PlayerNumber))
+        {
+            OxygenPS.emit = false;
+        }
+
+        // SPRITE ROTATION //
+        if (rigidbody.velocity != Vector3.zero
+         && rigidbody.velocity.z == 0)
+        {
+            Visual.rotation = Quaternion.LookRotation(rigidbody.velocity);
+            prevVel = rigidbody.velocity;
+        }
+        else
+        {
+            Visual.rotation = Quaternion.LookRotation(prevVel);
         }
     }
 
