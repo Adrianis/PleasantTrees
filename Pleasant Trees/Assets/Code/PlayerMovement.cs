@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
     public ParticleEmitter OxygenPS;
 
     public Transform Visual;
+    public Transform DirArrow;
 
     private Vector3 prevVel = Vector3.right;
 
@@ -35,7 +36,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         Vector3 direction = new Vector3(-Input.GetAxis("DirectionX_" + PlayerNumber), -Input.GetAxis("DirectionY_" + PlayerNumber), 0);
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        transform.rotation = rotation;
+        DirArrow.rotation = rotation;
 
         if (Input.GetButton("Push_" + PlayerNumber))
         { 
