@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         pushForceOri = pushForce;
         OxyTimer = GetComponent<OxygenTimer>();
+        OxyTimer.playerNum = PlayerNumber;
     }
 
     void FixedUpdate()
