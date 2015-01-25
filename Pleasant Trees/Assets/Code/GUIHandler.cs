@@ -45,16 +45,16 @@ public class GUIHandler : MonoBehaviour {
         if (!Player1Dead)
         {
             GUI.Label(new Rect(10, 30, 40, 20), "O2:");
-            GUI.Label(new Rect(50, 30, TimeOri * 7, 20), "", guiBackgroundStyle);
-            GUI.Label(new Rect(50, 30, Player1Time * 7, 20), "", guiMeasureStyle);
+            GUI.Label(new Rect(50, 30, TimeOri * 4, 20), "", guiBackgroundStyle);
+            GUI.Label(new Rect(50, 30, Player1Time * 4, 20), "", guiMeasureStyle);
         }
         
         // Player 2
         if (!Player2Dead)
         {
             GUI.Label(new Rect(780, 30, 40, 20), "O2:");
-            GUI.Label(new Rect(820, 30, TimeOri * 7, 20), "", guiBackgroundStyle);
-            GUI.Label(new Rect(820, 30, Player2Time * 7, 20), "", guiMeasureStyle);
+            GUI.Label(new Rect(820, 30, TimeOri * 4, 20), "", guiBackgroundStyle);
+            GUI.Label(new Rect(820, 30, Player2Time * 4, 20), "", guiMeasureStyle);
         }
     }
 

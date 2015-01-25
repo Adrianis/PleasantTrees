@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
                     rigidbody.AddForce(direction * pushForce, ForceMode.Impulse);
                     foreach (Animator anim in Anims)
                         anim.SetTrigger("KickOff");
-                    transform.root.GetComponent<SoundLocalManager>().PlaySound(KickOff, 1, true);
+                    transform.root.GetComponent<SoundLocalManager>().PlaySound(KickOff, 0.3f, true);
                 }
             }
             // reset pushForce whenever the button is released
