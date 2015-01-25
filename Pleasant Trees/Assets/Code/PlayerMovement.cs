@@ -27,11 +27,11 @@ public class PlayerMovement : MonoBehaviour {
         pushForceOri = pushForce;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 direction = new Vector3(-Input.GetAxis("DirectionX_" + PlayerNumber), -Input.GetAxis("DirectionY_" + PlayerNumber), 0);
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
-        //transform.rotation = rotation;
+        transform.rotation = rotation;
 
         if (Input.GetButton("Push_" + PlayerNumber))
         { 
@@ -91,10 +91,14 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         // SPRITE ROTATION //
-        if (rigidbody.velocity != Vector3.zero
-         && rigidbody.velocity.z == 0)
+        if (rigidbody.velocity != Vector3.zero)
         {
-            Visual.rotation = Quaternion.LookRotation(rigidbody.velocity);
+            Quaternion Q = Quaternion.LookRotation(rigidbody.velocity);
+            Vector3 EQ = Q.eulerAngles;
+            EQ.z = 0;
+            Q = Quaternion.Euler(EQ);
+            Visual.rotation = Q;
+
             prevVel = rigidbody.velocity;
         }
         else
