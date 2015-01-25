@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 prevVel = Vector3.right;
 
     private OxygenTimer OxyTimer;
+
+    public List<Animator> Anims;
 
     void Start()
     {
@@ -53,7 +56,7 @@ public class PlayerMovement : MonoBehaviour {
                 pushForce += (pushForceOri / 18);
             }
         }
-        else if (Input.GetButtonUp("Push_" + PlayerNumber))
+        if (Input.GetButtonUp("Push_" + PlayerNumber))
         {
             if (isTouchingSurface)
             {
@@ -61,6 +64,8 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     // allow pushing off only when touching surface && direction is valid
                     rigidbody.AddForce(direction * pushForce, ForceMode.Impulse);
+                    foreach (Animator anim in Anims)
+                        anim.SetTrigger("KickOff");
                 }
             }
             // reset pushForce whenever the button is released
@@ -101,7 +106,7 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
-        // SPRITE ROTATION //
+        // SPRITE ROTATION && ANIMATION //
         if (rigidbody.velocity != Vector3.zero)
         {
             Quaternion Q = Quaternion.LookRotation(rigidbody.velocity);
@@ -111,6 +116,12 @@ public class PlayerMovement : MonoBehaviour {
             Visual.rotation = Q;
 
             prevVel = rigidbody.velocity;
+
+            foreach (Animator anim in Anims)
+            {
+                anim.SetFloat("Speed", rigidbody.velocity.magnitude);
+            }
+                
         }
         else
         {
@@ -122,6 +133,8 @@ public class PlayerMovement : MonoBehaviour {
     void OnTriggerEnter(Collider col)
     {
         isTouchingSurface = true;
+        foreach (Animator anim in Anims)
+            anim.SetTrigger("Approach");
     }
 
     void OnTriggerStay(Collider col)
@@ -132,6 +145,8 @@ public class PlayerMovement : MonoBehaviour {
     void OnTriggerExit(Collider col)
     {
         isTouchingSurface = false;
+        foreach (Animator anim in Anims)
+            anim.SetTrigger("StopApproach");
     }
 
 }
