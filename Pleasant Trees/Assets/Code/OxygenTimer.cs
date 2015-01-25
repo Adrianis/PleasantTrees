@@ -5,7 +5,10 @@ public class OxygenTimer : MonoBehaviour {
 
     public float TimeTillAsphyx;
 
-
+    void Start()
+    {
+        StartCoroutine(AsphyxCounter());
+    }
 
 
     private IEnumerator AsphyxCounter()
