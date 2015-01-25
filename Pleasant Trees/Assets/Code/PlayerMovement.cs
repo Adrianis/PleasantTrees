@@ -29,6 +29,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public List<Animator> Anims;
 
+    public AudioClip KickOff;
+    public AudioClip HitSurface;
+
     void Start()
     {
         pushForceOri = pushForce;
@@ -67,6 +70,7 @@ public class PlayerMovement : MonoBehaviour {
                     rigidbody.AddForce(direction * pushForce, ForceMode.Impulse);
                     foreach (Animator anim in Anims)
                         anim.SetTrigger("KickOff");
+                    transform.root.GetComponent<SoundLocalManager>().PlaySound(KickOff, 1, true);
                 }
             }
             // reset pushForce whenever the button is released
@@ -148,6 +152,11 @@ public class PlayerMovement : MonoBehaviour {
         isTouchingSurface = false;
         foreach (Animator anim in Anims)
             anim.SetTrigger("StopApproach");
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        transform.root.GetComponent<SoundLocalManager>().PlaySound(HitSurface, 1, true);
     }
 
 }
