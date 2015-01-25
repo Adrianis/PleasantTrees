@@ -1,0 +1,193 @@
+fileFormatVersion: 2
+guid: f9cb8ad46d1447141b415f3729d00060
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: character-sprite-sheet-mk1_0
+    21300002: character-sprite-sheet-mk1_1
+    21300004: character-sprite-sheet-mk1_2
+    21300006: character-sprite-sheet-mk1_3
+    21300008: character-sprite-sheet-mk1_4
+    21300010: character-sprite-sheet-mk1_5
+    21300012: character-sprite-sheet-mk1_6
+    21300014: character-sprite-sheet-mk1_7
+    21300016: character-sprite-sheet-mk1_8
+    21300018: character-sprite-sheet-mk1_9
+    21300020: character-sprite-sheet-mk1_10
+    21300022: character-sprite-sheet-mk1_11
+    21300024: character-sprite-sheet-mk1_12
+    21300026: character-sprite-sheet-mk1_13
+    21300028: character-sprite-sheet-mk1_14
+    21300030: character-sprite-sheet-mk1_15
+    21300032: character-sprite-sheet-mk1_16
+    21300034: character-sprite-sheet-mk1_17
+    21300036: character-sprite-sheet-mk1_18
+    21300038: character-sprite-sheet-mk1_19
+    21300040: character-sprite-sheet-mk1_20
+    21300042: InFlight
+    21300044: InTriggerRange
+    21300046: KickOff1
+    21300048: KickOff2
+    21300050: KickOff3
+    21300052: KickOff4
+    21300054: KickOff5
+    21300056: character-sprite-sheet-mk1_28
+    21300058: character-sprite-sheet-mk1_29
+    21300060: character-sprite-sheet-mk1_30
+    21300062: character-sprite-sheet-mk1_31
+    21300064: character-sprite-sheet-mk1_32
+    21300066: character-sprite-sheet-mk1_33
+    21300068: character-sprite-sheet-mk1_34
+    21300070: character-sprite-sheet-mk1_35
+    21300072: character-sprite-sheet-mk1_36
+    21300074: character-sprite-sheet-mk1_37
+    21300076: character-sprite-sheet-mk1_38
+    21300078: character-sprite-sheet-mk1_39
+    21300080: character-sprite-sheet-mk1_40
+    21300082: character-sprite-sheet-mk1_41
+    21300084: character-sprite-sheet-mk1_42
+    21300086: character-sprite-sheet-mk1_43
+    21300088: character-sprite-sheet-mk1_44
+    21300090: SlowFloat
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: character-sprite-sheet-mk1_31
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1486
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: character-sprite-sheet-mk1_32
+      rect:
+        serializedVersion: 2
+        x: 2379
+        y: 829
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InFlight
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 3494
+        width: 1405
+        height: 1402
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SlowFloat
+      rect:
+        serializedVersion: 2
+        x: 3171
+        y: 3495
+        width: 1400
+        height: 1401
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: InTriggerRange
+      rect:
+        serializedVersion: 2
+        x: 1694
+        y: 3495
+        width: 1405
+        height: 1401
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KickOff1
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1896
+        width: 1406
+        height: 1401
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KickOff2
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 1896
+        width: 1406
+        height: 1401
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KickOff3
+      rect:
+        serializedVersion: 2
+        x: 3170
+        y: 1896
+        width: 1406
+        height: 1400
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KickOff4
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 307
+        width: 1405
+        height: 1401
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: KickOff5
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 307
+        width: 1406
+        height: 1401
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
