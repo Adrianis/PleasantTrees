@@ -36,7 +36,14 @@ public class PlayerMovement : MonoBehaviour {
     {
         Vector3 direction = new Vector3(-Input.GetAxis("DirectionX_" + PlayerNumber), -Input.GetAxis("DirectionY_" + PlayerNumber), 0);
         Quaternion rotation = Quaternion.LookRotation(direction, Vector3.up);
+        
         DirArrow.rotation = rotation;
+        if (direction == Vector3.zero)
+            DirArrow.gameObject.SetActive(false);
+        else if (!DirArrow.gameObject.activeInHierarchy)
+            DirArrow.gameObject.SetActive(true);
+
+        // PLAYER INPUTS //
 
         if (Input.GetButton("Push_" + PlayerNumber))
         { 
@@ -81,6 +88,8 @@ public class PlayerMovement : MonoBehaviour {
             }
         }
 
+        OxygenPS.emit = false; // more reliable way of turning off PS if not pushing Y
+
         if (Input.GetButton("Propel_" + PlayerNumber))
         {
             if (direction != Vector3.zero)
@@ -90,10 +99,6 @@ public class PlayerMovement : MonoBehaviour {
                 // do oxygen reduction over time
                 OxyTimer.TimeTillAsphyx -= oxygenBoostRate;
             }
-        }
-        else if (Input.GetButtonUp("Propel_" + PlayerNumber))
-        {
-            OxygenPS.emit = false;
         }
 
         // SPRITE ROTATION //
